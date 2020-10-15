@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\EventsController;
+use App\Http\Controllers\RecivablesController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -54,4 +56,10 @@ Route::post("donate",[PaymentsContoller::class, 'donateaction']);
 Route::post("get_involved",[PaymentsContoller::class, 'getinvaction']);
 
 Route::resource('users', UsersController::class)->shallow();
+
+Route::resource('payments', RecivablesController::class)->shallow();
+
+
+Route::resource('events', EventsController::class)->shallow();
+
 

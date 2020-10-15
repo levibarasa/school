@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Payments;
+use App\Models\Event;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
-class RecivablesController extends Controller
+class EventsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,14 +17,22 @@ class RecivablesController extends Controller
     {
         if ($request->ajax()) {
 
-            $payments = \DB::table('payments')->get();
+            $payments = \DB::table('events')->get();
 
 
             return Datatables::of($payments)
 
                 ->addIndexColumn()
-
                 ->addColumn('action', function($row){
+
+
+
+                    $btn = '<a href="#" class="btn btn-primary btn-icon btn-sm" ><i class="icon ion-ios-create mr-2"></i>Approve
+                           </a>';
+
+
+
+                    return $btn;
 
                 })
 
@@ -39,8 +47,9 @@ class RecivablesController extends Controller
 
 
 
-        return view('admin.payments');
+        return view('admin.events');
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -60,16 +69,24 @@ class RecivablesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       Event::create([
+           "events"=>$request->events,
+           "name"=>$request->name,
+           "description"=>$request->descrption,
+           "location"=>$request->location
+       ]);
+
+        return back()->with('success','Donation Request  Processed  successfully please check your phone to complete the transaction');
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Payments  $payments
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Payments $payments)
+    public function show($id)
     {
         //
     }
@@ -77,10 +94,10 @@ class RecivablesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Payments  $payments
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Payments $payments)
+    public function edit($id)
     {
         //
     }
@@ -89,10 +106,10 @@ class RecivablesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Payments  $payments
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Payments $payments)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -100,10 +117,10 @@ class RecivablesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Payments  $payments
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Payments $payments)
+    public function destroy($id)
     {
         //
     }

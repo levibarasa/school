@@ -78,12 +78,12 @@
         </div><!-- aside-loggedin -->
         <ul class="nav nav-aside">
                         <li class="nav-label mg-t-25">Members Management</li>
-            <li class="nav-item"><a href="/members" class="nav-link"><i data-feather="users"></i> <span>Member List</span></a></li>
-            <li class="nav-item"><a href="/invoices" class="nav-link"><i data-feather="printer"></i> <span>Payments</span></a></li>
+            <li class="nav-item"><a href="/users" class="nav-link"><i data-feather="users"></i> <span>Member List</span></a></li>
+            <li class="nav-item"><a href="/payments" class="nav-link"><i data-feather="printer"></i> <span>Payments</span></a></li>
 
 
             <li class="nav-label mg-t-25">Events Management</li>
-            <li class="nav-item with-sub">
+            <li class="nav-item">
                 <a href="#" class="nav-link"><i data-feather="user"></i> <span>Events List</span></a>
             </li>
 

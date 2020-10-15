@@ -16,8 +16,8 @@
 
     <!-- Facebook -->
     <meta property="og:url" content="http://themepixels.me/dashforge">
-    <meta property="og:title" content="DashForge">
-    <meta property="og:description" content="Responsive Bootstrap 4 Dashboard Template">
+    <meta property="og:title" content="People's Democratic Party">
+    <meta property="og:description" content="People's Democratic Party">
 
     <meta property="og:image" content="http://themepixels.me/dashforge/img/dashforge-social.png">
     <meta property="og:image:secure_url" content="http://themepixels.me/dashforge/img/dashforge-social.png">
