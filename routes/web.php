@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\LocationController;
-use App\Http\Controllers\PaymentsContoller;
+use App\Http\Controllers\PaymentsController;
 use App\Http\Controllers\RecivablesController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
@@ -39,13 +39,13 @@ Route::get('/register', function () {
 
 Route::post('/register', [LocationController::class, 'register']);
 
-Route::get('/complete_registartion/{id}', [PaymentsContoller::class, 'complete']);
+Route::get('/complete_registartion/{id}', [PaymentsController::class, 'complete']);
 
-Route::Post('/complete_registartion_update', [PaymentsContoller::class, 'update']);
+Route::Post('/complete_registartion_update', [PaymentsController::class, 'update']);
 
-Route::Post('/verify', [PaymentsContoller::class, 'verify']);
+Route::Post('/verify', [PaymentsController::class, 'verify']);
 
-Route::GET('/verify', [PaymentsContoller::class, 'verify_view']);
+Route::GET('/verify', [PaymentsController::class, 'verify_view']);
 
 
 Route::get('/admin', function () {

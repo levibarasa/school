@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Safaricom\Mpesa\Mpesa;
 
-class PaymentsContoller extends Controller
+class PaymentsController extends Controller
 {
     //
 
