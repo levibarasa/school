@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\LocationController;
+use App\Http\Controllers\PaymentsContoller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('/counties', [LocationController::class, 'counties']);
+
+Route::get('/wards', [LocationController::class, 'wards']);
+
+
+
+Route::get('/payment_result', [PaymentsContoller::class, 'index']);
+
+Route::post('/payment_result', [PaymentsContoller::class, 'index']);

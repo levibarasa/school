@@ -171,7 +171,7 @@ class PaymentsContoller extends Controller
         $Remarks="PDP";
         $stkPushSimulation=$mpesa->STKPushSimulation(174379, $LipaNaMpesaPasskey, $TransactionType, $Amount, $PartyA, $PartyB, $PhoneNumber, $CallBackURL, $AccountReference, $TransactionDesc, $Remarks);
         \Log::info($stkPushSimulation);
-
+           \Log::info(env("APP_URL")."/api/payment_result");
 
         Payment::create([
             "reference"=>json_decode($stkPushSimulation)->CheckoutRequestID,
@@ -192,6 +192,31 @@ class PaymentsContoller extends Controller
         return back()->with('success','Request Processed  successfully');
     }
 
+
+
+    public function testMpesa(Request $request){
+
+
+        $mpesa= new Mpesa();
+
+        $LipaNaMpesaPasskey="bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919";
+        $TransactionType="CustomerPayBillOnline";
+        $Amount=$request->amount;
+        $PartyA=$request->phonenumber;
+        $PartyB=174379;
+        $PhoneNumber=$request->phonenumber;
+        $CallBackURL=env("APP_URL")."/api/payment_result";
+        $AccountReference="";
+        $TransactionDesc="PAYBILL";
+        $Remarks="PDP";
+        $stkPushSimulation=$mpesa->STKPushSimulation(174379, $LipaNaMpesaPasskey, $TransactionType, $Amount, $PartyA, $PartyB, $PhoneNumber, $CallBackURL, $AccountReference, $TransactionDesc, $Remarks);
+        \Log::info($stkPushSimulation);
+
+
+
+       return $stkPushSimulation;
+
+    }
 
 
 

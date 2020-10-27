@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\EventsController;
+use App\Http\Controllers\LocationController;
+use App\Http\Controllers\PaymentsContoller;
 use App\Http\Controllers\RecivablesController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class HomeController extends Controller
 {
@@ -23,6 +26,21 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+
+
+        $user =Auth::user();
+
+        $roles = $user->getRoleNames(); // Returns a collection
+
+        if ($user->hasRole('adminpdp')) {
+
+
+
+             return view('scafold.admin');
+
+        }
+
         return view('home');
     }
 }

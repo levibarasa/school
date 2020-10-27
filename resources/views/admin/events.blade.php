@@ -67,7 +67,7 @@
 
                             <div class="form-group">
                                 <label for="inputAddress">Event Date</label>
-                                <input type="text" class="form-control datepicker" name="events" id="inputAddress" >
+                                <input type="text" class="form-control datepicker" name="events" data-date-format="yyyy-mm-dd" id="inputAddress" >
                             </div>
 
 
