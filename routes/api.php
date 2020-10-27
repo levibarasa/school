@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\LocationController;
-use App\Http\Controllers\PaymentsContoller;
+use App\Http\Controllers\PaymentsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +27,6 @@ Route::get('/wards', [LocationController::class, 'wards']);
 
 
 
-Route::get('/payment_result', [PaymentsContoller::class, 'index']);
+Route::get('/payment_result', [PaymentsController::class, 'index']);
 
-Route::post('/payment_result', [PaymentsContoller::class, 'index']);
+Route::post('/payment_result', [PaymentsController::class, 'index']);
