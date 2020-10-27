@@ -49,6 +49,7 @@ class LocationController extends Controller
 
         //dd($request->docnumber);
 
+        //apa
 
    $user=User::create([
             'docnumber'=>$request->docnumber,
