@@ -51,13 +51,13 @@ Route::get('/admin', function () {
 
 
 
-Route::get("donate",[PaymentsContoller::class, 'donate']);
+Route::get("donate",[PaymentsController::class, 'donate']);
 
-Route::get("get_involved",[PaymentsContoller::class, 'getinv']);
+Route::get("get_involved",[PaymentsController::class, 'getinv']);
 
-Route::post("donate",[PaymentsContoller::class, 'donateaction']);
+Route::post("donate",[PaymentsController::class, 'donateaction']);
 
-Route::post("get_involved",[PaymentsContoller::class, 'getinvaction']);
+Route::post("get_involved",[PaymentsController::class, 'getinvaction']);
 
 Route::resource('users', UsersController::class)->shallow();
 
