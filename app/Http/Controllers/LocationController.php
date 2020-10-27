@@ -52,7 +52,6 @@ class LocationController extends Controller
         //apa
 
    $user=User::create([
-            'docnumber'=>$request->docnumber,
             'name' => $request->firstname.' '.$request->lastname,
             'email' => $request->email,
             'password' => Hash::make("testing"),
