@@ -51,6 +51,11 @@ class LocationController extends Controller
 
         //apa
 
+        \Validator::make($request->all(), [
+            'email' => 'required|unique:users',
+            'docnumber' => 'required|unique:users',
+        ])->validate();
+
    $user=User::create([
             'name' => $request->firstname.' '.$request->lastname,
             'email' => $request->email,
