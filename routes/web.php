@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\EventsController;
+use App\Http\Controllers\LocationController;
+use App\Http\Controllers\PaymentsController;
 use App\Http\Controllers\RecivablesController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
@@ -15,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
 
 Route::get('/', function () {
     return view('landing');
@@ -32,13 +36,13 @@ Route::get('/register', function () {
 
 Route::post('/register', [LocationController::class, 'register']);
 
-Route::get('/complete_registartion/{id}', [PaymentsContoller::class, 'complete']);
+Route::get('/complete_registartion/{id}', [PaymentsController::class, 'complete']);
 
-Route::Post('/complete_registartion_update', [PaymentsContoller::class, 'update']);
+Route::Post('/complete_registartion_update', [PaymentsController::class, 'update']);
 
-Route::Post('/verify', [PaymentsContoller::class, 'verify']);
+Route::Post('/verify', [PaymentsController::class, 'verify']);
 
-Route::GET('/verify', [PaymentsContoller::class, 'verify_view']);
+Route::GET('/verify', [PaymentsController::class, 'verify_view']);
 
 
 Route::get('/admin', function () {
@@ -47,13 +51,13 @@ Route::get('/admin', function () {
 
 
 
-Route::get("donate",[PaymentsContoller::class, 'donate']);
+Route::get("donate",[PaymentsController::class, 'donate']);
 
-Route::get("get_involved",[PaymentsContoller::class, 'getinv']);
+Route::get("get_involved",[PaymentsController::class, 'getinv']);
 
-Route::post("donate",[PaymentsContoller::class, 'donateaction']);
+Route::post("donate",[PaymentsController::class, 'donateaction']);
 
-Route::post("get_involved",[PaymentsContoller::class, 'getinvaction']);
+Route::post("get_involved",[PaymentsController::class, 'getinvaction']);
 
 Route::resource('users', UsersController::class)->shallow();
 

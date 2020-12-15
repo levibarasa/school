@@ -14,8 +14,14 @@
                     <div id="wizard2">
                         <h3>Personal Information</h3>
                         <section>
-                           <!-- <p class="mg-b-20">Try the keyboard navigation by clicking arrow left or right!</p>-->
+
+                            @if ($errors->any())
+                            @foreach ($errors->all() as $error)
+                            <p class="text-danger">{{$error}}</p>
+                            @endforeach
+                            @endif
                             <div class="row row-sm">
+
                                 <div class="col-md-6">
                                     <label class="form-control-label">Firstname: <span class="tx-danger">*</span></label>
                                     <input id="firstname" class="form-control" name="firstname" placeholder="Enter firstname" type="text" required="" data-parsley-id="3"><ul class="parsley-errors-list" id="parsley-id-3"></ul>

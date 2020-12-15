@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Safaricom\Mpesa\Mpesa;
 
-class PaymentsContoller extends Controller
+class PaymentsController extends Controller
 {
     //
 
@@ -156,7 +156,6 @@ class PaymentsContoller extends Controller
 
     public function donateaction(Request $request){
 
-
         $mpesa= new Mpesa();
 
         $LipaNaMpesaPasskey="bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919";
@@ -170,18 +169,32 @@ class PaymentsContoller extends Controller
         $TransactionDesc="PAYBILL";
         $Remarks="PDP";
         $stkPushSimulation=$mpesa->STKPushSimulation(174379, $LipaNaMpesaPasskey, $TransactionType, $Amount, $PartyA, $PartyB, $PhoneNumber, $CallBackURL, $AccountReference, $TransactionDesc, $Remarks);
+        $message="";
+        $status="";
+        $data=json_decode($stkPushSimulation);
+        if( isset($data->CheckoutRequestID)) {
+            //key exists, do stuff
+            Payment::create([
+                "reference"=>$data->CheckoutRequestID,
+                "amount"=>$request->amount,
+                "payment_method"=>"MPESA",
+                "payment_type"=>"DONATION",
+                "payer"=>$request->firstname.' '.$request->lastname,
+            ]);
+
+            $status='success';
+            $message="Donation Request  Processed  successfully please check your phone to complete the transaction";
+        }else{
+            $message=$data->errorMessage;
+            $status='error';
+        }
+
         \Log::info($stkPushSimulation);
+           \Log::info(env("APP_URL")."/api/payment_result");
 
 
-        Payment::create([
-            "reference"=>json_decode($stkPushSimulation)->CheckoutRequestID,
-            "amount"=>$request->amount,
-            "payment_method"=>"MPESA",
-            "payment_type"=>"DONATION",
-            "payer"=>$request->firstname.' '.$request->lastname,
-        ]);
 
-        return back()->with('success','Donation Request  Processed  successfully please check your phone to complete the transaction');
+        return back()->with($status,$message);
 
     }
 
@@ -192,6 +205,31 @@ class PaymentsContoller extends Controller
         return back()->with('success','Request Processed  successfully');
     }
 
+
+
+    public function testMpesa(Request $request){
+
+
+        $mpesa= new Mpesa();
+
+        $LipaNaMpesaPasskey="bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919";
+        $TransactionType="CustomerPayBillOnline";
+        $Amount=$request->amount;
+        $PartyA=$request->phonenumber;
+        $PartyB=174379;
+        $PhoneNumber=$request->phonenumber;
+        $CallBackURL=env("APP_URL")."/api/payment_result";
+        $AccountReference="";
+        $TransactionDesc="PAYBILL";
+        $Remarks="PDP";
+        $stkPushSimulation=$mpesa->STKPushSimulation(174379, $LipaNaMpesaPasskey, $TransactionType, $Amount, $PartyA, $PartyB, $PhoneNumber, $CallBackURL, $AccountReference, $TransactionDesc, $Remarks);
+        \Log::info($stkPushSimulation);
+
+
+
+       return $stkPushSimulation;
+
+    }
 
 
 

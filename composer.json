@@ -16,7 +16,10 @@
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.0",
-        "yajra/laravel-datatables-oracle": "~9.0"
+        "safaricom/mpesa": "^1.0",
+        "spatie/laravel-permission": "^3.17",
+        "yajra/laravel-datatables-oracle": "~9.0",
+      "ext-json": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",

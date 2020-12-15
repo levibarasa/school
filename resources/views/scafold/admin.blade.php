@@ -56,21 +56,11 @@
     <div class="aside-body">
         <div class="aside-loggedin">
             <div class="d-flex align-items-center justify-content-start">
-                <a href="#" class="avatar"><img  class="rounded-circle" alt=""></a>
-                <div class="aside-alert-link">
-                    <a  href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();" data-toggle="tooltip" title="Sign out"><i data-feather="log-out"></i></a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                </div>
             </div>
             <div class="aside-loggedin-user">
                 <a href="##loggedinMenu" class="d-flex align-items-center justify-content-between mg-b-2" data-toggle="collapse">
-                    <h6 class="tx-semibold mg-b-0">  name</h6>
-                    <i data-feather="chevron-down"></i>
+                    <h6 class="tx-semibold mg-b-0">  {{Auth::user()->name}}</h6>
+
                 </a>
 
             </div>
@@ -84,7 +74,7 @@
 
             <li class="nav-label mg-t-25">Events Management</li>
             <li class="nav-item">
-                <a href="#" class="nav-link"><i data-feather="user"></i> <span>Events List</span></a>
+                <a href="/events" class="nav-link"><i data-feather="user"></i> <span>Events List</span></a>
             </li>
 
         </ul>
@@ -98,7 +88,10 @@
             <input  id="searchX" type="search" class="form-control" placeholder="Search...">
         </div>
         <nav class="nav">
-            <a href="#" class="nav-link"><i data-feather="log-out"></i></a>
+            <a  href="javascript:void" class="nav-link" onclick="$('#logout-form').submit()" data-toggle="tooltip" title="Sign out"><i data-feather="log-out"></i></a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
         </nav>
     </div><!-- content-header -->
 
