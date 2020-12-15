@@ -6,24 +6,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Twitter -->
-    <meta name="twitter:site" content="@pdp">
-    <meta name="twitter:creator" content="@pdp">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="PDP">
-    <meta name="twitter:description" content="People's Democratic Party">
-    <meta name="twitter:image" content="http://themepixels.me/dashforge/img/dashforge-social.png">
-
-    <!-- Facebook -->
-    <meta property="og:url" content="http://themepixels.me/dashforge">
-    <meta property="og:title" content="DashForge">
-    <meta property="og:description" content="Responsive Bootstrap 4 Dashboard Template">
-
-    <meta property="og:image" content="http://themepixels.me/dashforge/img/dashforge-social.png">
-    <meta property="og:image:secure_url" content="http://themepixels.me/dashforge/img/dashforge-social.png">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="600">
 
     <!-- Meta -->
     <meta name="description" content="People's Democratic Party">
@@ -57,7 +39,9 @@
 <header class="navbar navbar-header navbar-header-fixed bd-b-0">
     <a href="" id="mainMenuOpen" class="burger-menu"><i data-feather="menu"></i></a>
     <div class="navbar-brand">
-        <a href="/" class="df-logo">pd<span>p</span></a>
+
+        <img src="{{asset('assets/img/logo.png')}}" height="45px">
+
     </div><!-- navbar-brand -->
     <div id="navbarMenu" class="navbar-menu-wrapper">
         <div class="navbar-menu-header">
@@ -85,10 +69,25 @@
                 <a href="/donate" class="nav-link"><i data-feather="package"></i> Donations</a>
             </li>
 
+            <li class="nav-item">
+                <a href="/get_involved" class="nav-link"><i data-feather="package"></i>Get Involved</a>
+            </li>
+
+            @auth
+
+
 
             <li class="nav-item">
-                <a href="/donate" class="nav-link"><i data-feather="package"></i> Get involved</a>
+                <a href="javascript:void" class="nav-link" onclick="$('#logout-form').submit()" data-toggle="tooltip" title="Sign out">Logout</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
             </li>
+
+
+
+            @endauth
+
 
            <!-- <li class="nav-item"><a href="components/" class="nav-link"><i data-feather="box"></i> Components</a></li>
             <li class="nav-item"><a href="collections/" class="nav-link"><i data-feather="archive"></i> Collections</a></li>-->

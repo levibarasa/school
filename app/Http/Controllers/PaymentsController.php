@@ -201,8 +201,30 @@ class PaymentsController extends Controller
 
     public function getinvaction(Request $request){
 
+        //send mail here
 
-        return back()->with('success','Request Processed  successfully');
+
+        $options = $request->all();
+
+
+
+        $validator = Validator::make($options, [
+            'firstname' => 'required',
+            'lastname'=>'required',
+            'phonenumber' => 'required',
+            'constituency' => 'required',
+            'county' => 'required',
+           // 'email' => 'required',
+            'activities'=>'required'
+
+        ])->validate();
+
+        $options['activities']=json_encode($options['activities']);
+
+        \App\Models\Volunteer::Create($options);
+
+
+        return back()->with('success','Request Processed  successfully. We will reach out soon');
     }
 
 
