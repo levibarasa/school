@@ -6,24 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Twitter -->
-    <meta name="twitter:site" content="@pdp">
-    <meta name="twitter:creator" content="@pdp">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="PDP">
-    <meta name="twitter:description" content="People's Democratic Party">
-    <meta name="twitter:image" content="http://themepixels.me/dashforge/img/dashforge-social.png">
 
-    <!-- Facebook -->
-    <meta property="og:url" content="http://themepixels.me/dashforge">
-    <meta property="og:title" content="People's Democratic Party">
-    <meta property="og:description" content="People's Democratic Party">
-
-    <meta property="og:image" content="http://themepixels.me/dashforge/img/dashforge-social.png">
-    <meta property="og:image:secure_url" content="http://themepixels.me/dashforge/img/dashforge-social.png">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="600">
 
     <!-- Meta -->
     <meta name="description" content="People's Democratic Party">
