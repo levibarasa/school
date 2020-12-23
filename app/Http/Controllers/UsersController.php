@@ -18,17 +18,16 @@ class UsersController extends Controller
         if ($request->ajax()) {
 
             $users = \DB::table('users')->get();
-
+            
 
             return Datatables::of($users)
 
                 ->addIndexColumn()
 
-                ->addColumn('action', function($row){
+                ->addColumn('action', function($row){ 
 
 
-
-                    $btn = '<a href="#" class="btn btn-primary btn-icon btn-sm" ><i class="icon ion-ios-create mr-2"></i>Approve
+                    $btn = '<a href="users/'.$row->id.'" class="btn btn-primary btn-icon btn-sm" ><i class="icon ion-ios-create mr-2"></i>Approve
                            </a>';
 
 

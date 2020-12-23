@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/pdp-bootstrap.iml" filepath="$PROJECT_DIR$/.idea/pdp-bootstrap.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/pdpv2.iml" filepath="$PROJECT_DIR$/.idea/pdpv2.iml" />
     </modules>
   </component>
 </project>

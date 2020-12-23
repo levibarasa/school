@@ -4,8 +4,9 @@ use App\Http\Controllers\EventsController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\PaymentsController;
 use App\Http\Controllers\RecivablesController;
-use App\Http\Controllers\UsersController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsersController;  
+use App\Http\Controllers\EvntController;
+use Illuminate\Support\Facades\Route; 
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +65,6 @@ Route::resource('users', UsersController::class)->shallow();
 Route::resource('payments', RecivablesController::class)->shallow();
 
 
-Route::resource('events', EventsController::class)->shallow();
+Route::resource('events', EvntController::class)->shallow();
 
 

@@ -137,7 +137,8 @@
                         columns: [
 
                             /*{data: 'project_id', name: 'project_id'},*/
-                            {data: 'mpesaref', name: 'mpesaref'},
+                           /* {data: 'mpesaref', name: 'mpesaref'},*/
+                           {data: 'reference', name: 'reference'},
                             {data: 'payer', name: 'payer'},
 
                             {data: 'payment_type', name: 'payment_type'},

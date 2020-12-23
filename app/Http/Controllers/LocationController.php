@@ -56,13 +56,14 @@ class LocationController extends Controller
             'docnumber' => 'required|unique:users',
         ])->validate();
 
-   $user=User::create([
+   $user=User::create([ 
             'name' => $request->firstname.' '.$request->lastname,
             'email' => $request->email,
             'password' => Hash::make("testing"),
             'county' =>$request->county,
             'ward'=>$request->ward,
             'constituency'=>$request->constituency,
+            'phonenumber'=>$request->phonenumber,
             'docnumber'=>$request->docnumber
 
         ]);
@@ -86,14 +87,14 @@ class LocationController extends Controller
                 "user_id"=>$user->id,
                 "category"=>"Imara",
                 "status"=>"0",
-                "checkoutid"=>json_decode($stkPushSimulation)->CheckoutRequestID,
+                "checkoutid"=> "OLN6UI7R8Q", /*json_decode($stkPushSimulation)->CheckoutRequestID,*/
                 "name"=>$request->firstname,
                 "phonenumber"=>$request->phonenumber
         ]);
 
 
         Payment::create([
-            "reference"=>json_decode($stkPushSimulation)->CheckoutRequestID,
+            "reference"=> "1", /*json_decode($stkPushSimulation)->CheckoutRequestID,*/
             "amount"=>1,
             "payment_method"=>"MPESA",
             "payment_type"=>"MEMBERSHIP",

@@ -16,14 +16,7 @@
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="../../assets/img/favicon.png">
 
-    <title>@if(@isset($title))
-
-        Inv-{{str_pad($title, 8, '0', STR_PAD_LEFT)}}
-
-        @else
-        {{ config('app.name', 'Laravel') }}
-        @endif
-    </title>
+    <title>Admin-PDP</title>
     <!--     <title>{{ config('app.name', 'Laravel') }}</title>
      -->
     <!-- vendor css -->

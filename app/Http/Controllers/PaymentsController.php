@@ -111,7 +111,8 @@ class PaymentsController extends Controller
 
         Auth::login($user);
 
-        return redirect("/dashboard");
+        //return redirect("/dashboard");
+        return redirect("/home");
        // return view("membership.reset")->with(["userdata"=>$user]);
 
     }

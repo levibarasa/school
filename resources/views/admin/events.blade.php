@@ -6,8 +6,8 @@
         <div>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-style1 mg-b-10">
-                    <li class="breadcrumb-item"><a href="dashboard-one.html#">App</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Users</li>
+                    <li class="breadcrumb-item"><a href="dashboard-one.html#">PDP</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Events</li>
                 </ol>
             </nav>
         </div>
@@ -30,6 +30,7 @@
                 <thead>
                 <tr>
                     <th class="wd-20p">Event Name</th>
+                    <th class="wd-15p">Location</th>
                     <th class="wd-15p">Event Date</th>
                     <th class="wd-20p">Action</th>
                 </tr>
@@ -67,7 +68,7 @@
 
                             <div class="form-group">
                                 <label for="inputAddress">Event Date</label>
-                                <input type="text" class="form-control datepicker" name="events" data-date-format="yyyy-mm-dd" id="inputAddress" >
+                                <input type="text" class="form-control datepicker" value="2021-01-01" name="events" data-date-format="yyyy-mm-dd" id="inputAddress" >
                             </div>
 
 
@@ -100,13 +101,7 @@
 
 
                 <script>
-                $(function () {
-
-                    $('.datepicker').datepicker({
-                        startDate: '+1y'
-                    });
-
-
+                $(function () { 
 
                     'use strict'
 
@@ -132,6 +127,7 @@
 
                             /*{data: 'project_id', name: 'project_id'},*/
                             {data: 'name', name: 'name'},
+                            {data: 'location', name: 'location'},
                             {data: 'events', name: 'events'},
                             {data: 'action', name: 'action', orderable: false, searchable: false}
                         ],
