@@ -60,7 +60,7 @@
             <li class="nav-item with-sub">
                 <a href="#" class="nav-link"><i data-feather="package"></i> Events</a>
                 <ul class="navbar-menu-sub">
-                    <li class="nav-sub-item"><a href="#" class="nav-sub-link"><i data-feather="calendar"></i>Calendar</a></li>
+                    <li class="nav-sub-item"><a href="/notifyevent" class="nav-sub-link"><i data-feather="calendar"></i>Calendar</a></li>
 
                 </ul>
             </li>

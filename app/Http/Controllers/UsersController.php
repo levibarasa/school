@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Member;
+use App\Models\User; 
 use Yajra\DataTables\DataTables;
 
 class UsersController extends Controller
@@ -27,8 +28,7 @@ class UsersController extends Controller
                 ->addColumn('action', function($row){ 
 
 
-                    $btn = '<a href="users/'.$row->id.'" class="btn btn-primary btn-icon btn-sm" ><i class="icon ion-ios-create mr-2"></i>Approve
-                           </a>';
+                    $btn = '<a href="users/'.$row->id.'" class="btn btn-primary btn-icon btn-sm" ><i class="icon ion-ios-create mr-2"></i>Approve</a>';
 
 
 
@@ -74,21 +74,24 @@ class UsersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
-        //
+        $data = User::where('id',$id)->get();
+        if($data->count() > 0){ 
+            return view('admin.approvemember', compact('data'));
+        }
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
         //
     }
@@ -97,21 +100,28 @@ class UsersController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        //
+        $data =  User::find($id);  
+        $data->status = "1";   
+       if($data->save()){ 
+        return view('admin.members');
+         
+       }else{ 
+           return redirect()->back();
+       }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
         //
     }

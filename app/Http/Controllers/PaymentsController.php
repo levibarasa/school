@@ -122,6 +122,11 @@ class PaymentsController extends Controller
         return view("membership.verify");
     }
 
+    public function notify_event(){
+        $events = \DB::table('events')->get();
+        return view("events.notify", ['events' => $events]);
+    }
+
     public function verify(Request $request){
 
        $member=User::where("docnumber",$request->docnumber)->where("name",$request->firstname.' '.$request->lastname)->where("verified",1)->first();
@@ -169,6 +174,7 @@ class PaymentsController extends Controller
         $AccountReference="DONATION";
         $TransactionDesc="PAYBILL";
         $Remarks="PDP";
+        $mpesa->
         $stkPushSimulation=$mpesa->STKPushSimulation(174379, $LipaNaMpesaPasskey, $TransactionType, $Amount, $PartyA, $PartyB, $PhoneNumber, $CallBackURL, $AccountReference, $TransactionDesc, $Remarks);
         $message="";
         $status="";

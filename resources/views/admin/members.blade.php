@@ -6,7 +6,7 @@
             <div>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb breadcrumb-style1 mg-b-10">
-                        <li class="breadcrumb-item"><a href="dashboard-one.html#">App</a></li>
+                        <li class="breadcrumb-item"><a href="dashboard-one.html#">PDP</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Users</li>
                     </ol>
                 </nav>
@@ -35,6 +35,7 @@
                         <th class="wd-15p">county</th>
                         <th class="wd-15p">constituency</th>
                         <th class="wd-15p">ward</th>
+                        <th class="wd-15p">Approved</th>
                         <th class="wd-20p">Action</th>
                     </tr>
                     </thead>
@@ -63,12 +64,7 @@
                                     <label for="inputEmail4">Full Name</label>
                                     <input type="text" class="form-control" id="name" name="name" placeholder="name" required>
                                 </div>
-
-
-
-
-
-                                <div class="form-group">
+                               <div class="form-group">
                                     <label for="inputAddress">Phone Number</label>
                                     <input type="text" class="form-control" id="inputAddress" name="phone" required >
                                 </div>
@@ -82,12 +78,6 @@
                                     <label for="inputAddress">Password</label>
                                     <input type="password" class="form-control" name="password" id="inputAddress" >
                                 </div>
-
-
-
-
-
-
 
 
                         </div>
@@ -147,6 +137,17 @@
                                 {data: 'county', name: 'county'},
                                 {data: 'constituency', name: 'constituency'},
                                 {data: 'ward', name: 'ward'},
+                                {
+                            data: 'status',
+                            render:function (data) {
+                                if(data == '1'){
+                                    return '<span class="badge badge-success"> Yes</span>';
+                                }
+                                if(data == '0'){
+                                    return '<span class="badge badge-danger"> No</span>';
+                                }
+                        },
+                    },
                                 {data: 'action', name: 'action', orderable: false, searchable: false}
                             ],
                             "drawCallback": function () {

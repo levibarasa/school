@@ -61,7 +61,7 @@ class LocationController extends Controller
             'email' => $request->email,
             'password' => Hash::make("testing"),
             'county' =>$request->county,
-            'ward'=>$request->ward,
+            'ward'=>$request->ward, 
             'constituency'=>$request->constituency,
             'phonenumber'=>$request->phonenumber,
             'docnumber'=>$request->docnumber
@@ -87,14 +87,14 @@ class LocationController extends Controller
                 "user_id"=>$user->id,
                 "category"=>"Imara",
                 "status"=>"0",
-                "checkoutid"=> "OLN6UI7R8Q", /*json_decode($stkPushSimulation)->CheckoutRequestID,*/
+                "checkoutid"=> json_decode($stkPushSimulation)->CheckoutRequestID,
                 "name"=>$request->firstname,
                 "phonenumber"=>$request->phonenumber
         ]);
 
 
         Payment::create([
-            "reference"=> "1", /*json_decode($stkPushSimulation)->CheckoutRequestID,*/
+            "reference"=> json_decode($stkPushSimulation)->CheckoutRequestID,
             "amount"=>1,
             "payment_method"=>"MPESA",
             "payment_type"=>"MEMBERSHIP",
@@ -122,6 +122,12 @@ class LocationController extends Controller
 
         $constituency_code=Constituency::where("constituency_name",$request->constituency_name)->first()->constituency_code;
       return   Ward::where("constituency_code",$constituency_code)->get();
+
+    }
+
+    public function volunteers(Request $request){
+        $volunteers = \DB::table('volunteers')->get();
+       return   $volunteers;
 
     }
 

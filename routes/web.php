@@ -5,7 +5,8 @@ use App\Http\Controllers\LocationController;
 use App\Http\Controllers\PaymentsController;
 use App\Http\Controllers\RecivablesController;
 use App\Http\Controllers\UsersController;  
-use App\Http\Controllers\EvntController;
+use App\Http\Controllers\EvntController; 
+use App\Http\Controllers\VolunteersController;
 use Illuminate\Support\Facades\Route; 
 
 /*
@@ -45,12 +46,16 @@ Route::Post('/verify', [PaymentsController::class, 'verify']);
 
 Route::GET('/verify', [PaymentsController::class, 'verify_view']);
 
+Route::GET('/notifyevent', [PaymentsController::class, 'notify_event']);
+
 
 Route::get('/admin', function () {
     return view('scafold.admin');
 });
 
+Route::get('datatable', 'VolunteersController@datatable')->name('datatable');
 
+Route::post('approve','UsersController@approvemember')->name('approve');
 
 Route::get("donate",[PaymentsController::class, 'donate']);
 
@@ -67,4 +72,5 @@ Route::resource('payments', RecivablesController::class)->shallow();
 
 Route::resource('events', EvntController::class)->shallow();
 
+Route::resource('volunteers', VolunteersController::class)->shallow();
 

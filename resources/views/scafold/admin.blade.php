@@ -69,6 +69,10 @@
             <li class="nav-item">
                 <a href="/events" class="nav-link"><i data-feather="user"></i> <span>Events List</span></a>
             </li>
+            <li class="nav-label mg-t-25">Volunteer Management</li>
+            <li class="nav-item">
+                <a href="/volunteers" class="nav-link"><i data-feather="user"></i> <span>Volunteers</span></a>
+            </li>
 
         </ul>
     </div>

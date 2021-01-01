@@ -76,7 +76,7 @@ class EventsController extends Controller
            "location"=>$request->location
        ]);
 
-        return back()->with('success','Donation Request  Processed  successfully please check your phone to complete the transaction');
+        return back()->with('success','Event created successfully');
 
     }
 

@@ -22,6 +22,7 @@ class Volunteermigrtaion extends Migration
             $table->string('county');
             $table->string('constituency');
             $table->longText('activities');
+            $table->integer('status')->nullable();
             $table->timestamps();
         });
     }

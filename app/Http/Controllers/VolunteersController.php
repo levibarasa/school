@@ -2,21 +2,34 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Volunteer;
 use Illuminate\Http\Request;
 
 class VolunteersController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     * 
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        return view('admin.volunteer');
     }
 
+    public function datatable(){ 
+        $data  = \DB::select('select firstname,lastname,phonenumber,email,county,status from volunteers');
+        return Datatables::of($data)
+        ->addColumn('action',function($data){
+            $url_edit = url('volunteers/'.$data->id.'/edit');
+            $url = url('volunteers/'.$data->id);
+            $edit ="<a class='btn btn-action btn-warning btn-xs' href='".$url_edit."' title='Edit'><i class='nav-icon fas fa-edit'></i></a>";
+           
+            return $edit;
+        }) 
+        ->rawColumns(['action'])
+        ->editColumn('id','{{$id}}')
+        ->make(true);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -41,10 +54,10 @@ class VolunteersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Volunteer  $volunteer
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Volunteer $volunteer)
+    public function show($id)
     {
         //
     }
@@ -52,10 +65,10 @@ class VolunteersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Volunteer  $volunteer
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Volunteer $volunteer)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +77,10 @@ class VolunteersController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Volunteer  $volunteer
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Volunteer $volunteer)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +88,10 @@ class VolunteersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Volunteer  $volunteer
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Volunteer $volunteer)
+    public function destroy($id)
     {
         //
     }
