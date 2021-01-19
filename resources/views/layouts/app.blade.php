@@ -9,13 +9,13 @@
 
 
     <!-- Meta -->
-    <meta name="description" content="People's Democratic Party">
-    <meta name="author" content="PDP">
+    <meta name="description" content="School Management System">
+    <meta name="author" content="School Management System">
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 
-    <title>People's Democratic Party</title>
+    <title>School Management System</title>
 
     <!-- vendor css -->
     <link href="{{asset('lib/@fortawesome/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
@@ -40,44 +40,14 @@
 <header class="navbar navbar-header navbar-header-fixed bd-b-0">
     <a href="" id="mainMenuOpen" class="burger-menu"><i data-feather="menu"></i></a>
     <div class="navbar-brand">
-        <a href="/" class="df-logo">pd<span>p</span></a>
+        <a href="/" class="df-logo">SM<span>S</span></a>
     </div><!-- navbar-brand -->
     <div id="navbarMenu" class="navbar-menu-wrapper">
         <div class="navbar-menu-header">
-            <a href="/" class="df-logo">pd<span>p</span></a>
+            <a href="/" class="df-logo">School Management <span>System</span></a>
             <a id="mainMenuClose" href=""><i data-feather="x"></i></a>
         </div><!-- navbar-menu-header -->
-        <ul class="nav navbar-menu">
-            <li class="nav-label pd-l-15 pd-lg-l-25 d-lg-none">Main Navigation</li>
-            <li class="nav-item with-sub">
-                <a href="#" class="nav-link"><i data-feather="pie-chart"></i> Membership</a>
-                <ul class="navbar-menu-sub">
-                    <li class="nav-sub-item"><a href="/verify" class="nav-sub-link"><i data-feather="user-check"></i>Verify Membership</a></li>
-
-                </ul>
-            </li>
-            <li class="nav-item with-sub">
-                <a href="/events" class="nav-link"><i data-feather="package"></i> Events</a>
-                <ul class="navbar-menu-sub">
-                    <li class="nav-sub-item"><a href="/notifyevent" class="nav-sub-link"><i data-feather="calendar"></i>Calendar</a></li>
-
-                </ul>
-            </li>
-
-            <li class="nav-item">
-                <a href="/donate" class="nav-link"><i data-feather="package"></i> Donations</a>
-            </li>
-
-
-            <li class="nav-item">
-                <a href="/donate" class="nav-link"><i data-feather="package"></i> Get involved</a>
-            </li>
-
-
-
-            <!-- <li class="nav-item"><a href="components/" class="nav-link"><i data-feather="box"></i> Components</a></li>
-             <li class="nav-item"><a href="collections/" class="nav-link"><i data-feather="archive"></i> Collections</a></li>-->
-        </ul>
+        
     </div><!-- navbar-menu-wrapper -->
     <div class="navbar-right">
         <a href="#" class="btn btn-social"><i class="fab fa-facebook"></i></a>

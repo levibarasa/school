@@ -32,7 +32,7 @@
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 
-    <title>People's Democratic Party</title>
+    <title>School Management System</title>
 
     <!-- vendor css -->
     <link href="{{asset('lib/@fortawesome/fontawesome-free/css/all.min.css')}}" rel="stylesheet">

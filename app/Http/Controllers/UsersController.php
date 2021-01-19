@@ -47,7 +47,7 @@ class UsersController extends Controller
 
 
 
-        return view('admin.members');
+        return view('admin.mdm');
     }
 
     /**
@@ -108,7 +108,7 @@ class UsersController extends Controller
         $data =  User::find($id);  
         $data->status = "1";   
        if($data->save()){ 
-        return view('admin.members');
+        return view('admin.mdm');
          
        }else{ 
            return redirect()->back();

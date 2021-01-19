@@ -13539,13 +13539,13 @@ textarea.parsley-success:focus {
       margin-right: -2px; }
 
 .aside-logo {
-  font-size: 22px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: -1px;
   margin-top: -3px; }
   @media (min-width: 992px) {
     .aside-logo {
-      font-size: 24px; } }
+      font-size: 14px; } }
   .aside-logo span {
     font-weight: normal; }
   .aside-logo, .aside-logo:hover, .aside-logo:focus {

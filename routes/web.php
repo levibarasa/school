@@ -5,8 +5,19 @@ use App\Http\Controllers\LocationController;
 use App\Http\Controllers\PaymentsController;
 use App\Http\Controllers\RecivablesController;
 use App\Http\Controllers\UsersController;  
-use App\Http\Controllers\EvntController; 
+use App\Http\Controllers\EvntController;  
 use App\Http\Controllers\VolunteersController;
+use App\Http\Controllers\EntityController;
+use App\Http\Controllers\DormitoryController;
+use App\Http\Controllers\GradeController;
+use App\Http\Controllers\GradingSystemController;
+use App\Http\Controllers\GuardianController;
+use App\Http\Controllers\SchoolEventController;
+use App\Http\Controllers\StreamController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\FeeStructureController;
 use Illuminate\Support\Facades\Route; 
 
 /*
@@ -26,46 +37,28 @@ Route::get('/', function () {
     return view('landing');
 });
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-Route::get('/register', function () {
-    return view('membership.registration');
-});
-
-
-Route::post('/register', [LocationController::class, 'register']);
-
-Route::get('/complete_registartion/{id}', [PaymentsController::class, 'complete']);
-
-Route::Post('/complete_registartion_update', [PaymentsController::class, 'update']);
-
-Route::Post('/verify', [PaymentsController::class, 'verify']);
-
-Route::GET('/verify', [PaymentsController::class, 'verify_view']);
-
-Route::GET('/notifyevent', [PaymentsController::class, 'notify_event']);
+Auth::routes(); 
 
 
 Route::get('/admin', function () {
     return view('scafold.admin');
 });
 
-Route::get('datatable', 'VolunteersController@datatable')->name('datatable');
 
-Route::post('approve','UsersController@approvemember')->name('approve');
 
-Route::get("donate",[PaymentsController::class, 'donate']);
+Route::resource('mdm', UsersController::class)->shallow(); 
 
-Route::get("get_involved",[PaymentsController::class, 'getinv']);
-
-Route::post("donate",[PaymentsController::class, 'donateaction']);
-
-Route::post("get_involved",[PaymentsController::class, 'getinvaction']);
-
-Route::resource('users', UsersController::class)->shallow();
+Route::resource('entities', EntityController::class)->shallow();
+Route::resource('grades', GradeController::class)->shallow();
+Route::resource('streams', StreamController::class)->shallow();
+Route::resource('dormitories', DormitoryController::class)->shallow();
+Route::resource('teachers', TeacherController::class)->shallow();
+Route::resource('subjects', SubjectController::class)->shallow();
+Route::resource('students', StudentController::class)->shallow();
+Route::resource('school_events', SchoolEventController::class)->shallow();
+Route::resource('guardians', GuardianController::class)->shallow();
+Route::resource('grading_systems', GradingSystemController::class)->shallow();
+Route::resource('fee_structures', FeeStructureController::class)->shallow();
 
 Route::resource('payments', RecivablesController::class)->shallow();
 
@@ -73,4 +66,6 @@ Route::resource('payments', RecivablesController::class)->shallow();
 Route::resource('events', EvntController::class)->shallow();
 
 Route::resource('volunteers', VolunteersController::class)->shallow();
+
+Route::get('datatable', 'VolunteersController@datatable')->name('datatable'); 
 

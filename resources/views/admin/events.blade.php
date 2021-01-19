@@ -20,10 +20,7 @@
                </div> 
         </div>
     </div>
-    <div class="container pd-x-0">
-
-
-
+    <div class="container pd-x-0"> 
         <div data-label="owners" class="df-example demo-table">
             <table id="owners" class="table">
                 <thead>

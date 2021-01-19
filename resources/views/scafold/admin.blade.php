@@ -16,7 +16,7 @@
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="../../assets/img/favicon.png">
 
-    <title>Admin-PDP</title>
+    <title>NETIMA MAGNET EDUCATIONAL CENTER</title>
     <!--     <title>{{ config('app.name', 'Laravel') }}</title>
      -->
     <!-- vendor css -->
@@ -40,38 +40,23 @@
 
 <aside class="aside aside-fixed">
     <div class="aside-header">
-        <a href="/home" class="aside-logo">P<span>DP</span></a>
-        <a href="#" class="aside-menu-link">
-            <i data-feather="menu"></i>
-            <i data-feather="x"></i>
-        </a>
-    </div>
-    <div class="aside-body">
-        <div class="aside-loggedin">
-            <div class="d-flex align-items-center justify-content-start">
-            </div>
-            <div class="aside-loggedin-user">
-                <a href="##loggedinMenu" class="d-flex align-items-center justify-content-between mg-b-2" data-toggle="collapse">
-                    <h6 class="tx-semibold mg-b-0">  {{Auth::user()->name}}</h6>
-
-                </a>
-
-            </div>
-
-        </div><!-- aside-loggedin -->
+        <a href="/admin" class="aside-logo">NETIMA MAGNET<span> EDUCATIONAL CENTER</span></a>
+     </div>
+    <div class="aside-body"> 
         <ul class="nav nav-aside">
-                        <li class="nav-label mg-t-25">Members Management</li>
-            <li class="nav-item"><a href="/users" class="nav-link"><i data-feather="users"></i> <span>Member List</span></a></li>
-            <li class="nav-item"><a href="/payments" class="nav-link"><i data-feather="printer"></i> <span>Payments</span></a></li>
-
-
-            <li class="nav-label mg-t-25">Events Management</li>
+                        <li class="nav-label mg-t-25">Master Data Management</li>
+            <li class="nav-item"><a href="/mdm" class="nav-link"><i data-feather="mdm"></i> <span>School Master Data</span></a></li>
+            <li class="nav-label mg-t-25">Exams Management</li>
             <li class="nav-item">
-                <a href="/events" class="nav-link"><i data-feather="user"></i> <span>Events List</span></a>
+                <a href="/events" class="nav-link"><i data-feather="user"></i> <span>School Exams</span></a>
             </li>
-            <li class="nav-label mg-t-25">Volunteer Management</li>
+            <li class="nav-label mg-t-25">Fee Management</li>
             <li class="nav-item">
-                <a href="/volunteers" class="nav-link"><i data-feather="user"></i> <span>Volunteers</span></a>
+                <a href="/events" class="nav-link"><i data-feather="money"></i> <span>School Fees</span></a>
+            </li>
+            <li class="nav-label mg-t-25">Reports Management</li>
+            <li class="nav-item">
+                <a href="/volunteers" class="nav-link"><i data-feather="printer"></i> <span>Reports</span></a>
             </li>
 
         </ul>
@@ -85,7 +70,8 @@
             <input  id="searchX" type="search" class="form-control" placeholder="Search...">
         </div>
         <nav class="nav">
-            <a  href="javascript:void" class="nav-link" onclick="$('#logout-form').submit()" data-toggle="tooltip" title="Sign out"><i data-feather="log-out"></i></a>
+        <h6 class="tx-semibold mg-b-0"> Logged in as {{Auth::user()->name}}</h6> &nbsp;&nbsp;&nbsp;
+            <a  href="javascript:void" class="nav-link" onclick="$('#logout-form').submit()" data-toggle="tooltip" title="Sign out"><i data-feather="log-out"></i>Sign Out</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
